@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { debounceTime, filter } from 'rxjs';
+// import { FormControl } from '@angular/forms';
+// import { debounceTime, filter } from 'rxjs';
 
 @Component({
   selector: 'front-end-internship-assignment-home',
@@ -8,10 +8,10 @@ import { debounceTime, filter } from 'rxjs';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  bookSearch: FormControl;
+  // bookSearch: FormControl;
 
   constructor() {
-    this.bookSearch = new FormControl('');
+    // this.bookSearch = new FormControl('');
   }
 
   trendingSubjects: Array<any> = [
@@ -23,11 +23,11 @@ export class HomeComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.bookSearch.valueChanges
-      .pipe(
-        debounceTime(300),
-      ).
-      subscribe((value: string) => {
-      });
+    // this.bookSearch.valueChanges
+    //   .pipe(
+    //     debounceTime(300),
+    //   ).
+    //   subscribe((value: string) => {
+    //   });
   }
 }
