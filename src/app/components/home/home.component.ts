@@ -69,21 +69,41 @@ export class HomeComponent implements OnInit {
         this.totalPages = Math.ceil(this.totalResults / this.pageSize);
       });
   }
-
+  getPages(): number[] {
+    const pages: number[] = [];
+    const startPage = Math.max(1, this.currentPage - 2);
+    const endPage = Math.min(this.totalPages, this.currentPage + 2);
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(i);
+    }
+    return pages;
+  }
+  
+  goToPage(pageNum: number): void {
+    if (pageNum !== this.currentPage) {
+      this.currentPage = pageNum;
+      this.searchBooks();
+    }
+  }
+  
   // navigate to the next page
-  nextPage() {
+  nextPage(): void {
     if (this.currentPage < this.totalPages) {
       this.currentPage++;
       this.searchBooks();
+      this.getPages();
+      this.goToPage(this.currentPage);
     }
   }
-
-  // navigate to the previous page
-  prevPage() {
+  
+  prevPage(): void {
     if (this.currentPage > 1) {
       this.currentPage--;
       this.searchBooks();
+      this.getPages();
+      this.goToPage(this.currentPage);
     }
   }
+  
   
 }

@@ -34,8 +34,10 @@
   <front-end-internship-assignment-table-view [booksList]="searchResBooks"></front-end-internship-assignment-table-view>
   
   <div class="pagination">
-    <button class="btn btn-primary" [disabled]="currentPage === 0" (click)="prevPage()">Previous</button>
-    <button class="btn btn-primary" [disabled]="currentPage === 0" (click)="nextPage()">next</button>
+    <button class="prev" [disabled]="currentPage === 1" (click)="prevPage()">Prev</button>
+    <ng-container *ngFor="let page of getPages()">
+      <button [class.active]="currentPage === page" (click)="goToPage(page)">{{ page }}</button>
+    </ng-container>
+    <button class="next" [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
   </div>
-  
 </div>
