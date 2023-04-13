@@ -1,4 +1,16 @@
-<header-comp></header-comp>
+<div class="header">
+  <div class="tw-text-24-px tw-font-600">Open Books Library</div>
+  <div class="search-button">
+    <mat-icon class="tw-mt-16-px" aria-label="Search Icon">search</mat-icon>
+    <input
+      [formControl]="bookSearch"
+      name="searchKey"
+      type="text"
+      placeholder="Search Books"
+      class="tw-border-0 tw-bg-inherit"
+    >
+  </div>
+</div>
 
 
 <div class="tw-flex tw-flex-row tw-m-24-px">
@@ -10,4 +22,7 @@
       </li>
     </ul>
   </section>
+</div>
+<div class="searchResSection" *ngIf="searchResBooks.length > 0" >
+  <front-end-internship-assignment-table-view [booksList]="searchResBooks"></front-end-internship-assignment-table-view>
 </div>

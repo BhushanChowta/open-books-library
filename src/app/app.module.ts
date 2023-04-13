@@ -8,12 +8,10 @@ import { HomeComponent } from '../app/components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HeaderComponent } from './components/header/header.component';
-import { SearchComponent } from './components/search/search.component';
 
 
 @NgModule({
-  declarations: [AppComponent,    HeaderComponent,  SearchComponent,   TrendingSubjectsComponent, HomeComponent],
+  declarations: [AppComponent,   TrendingSubjectsComponent, HomeComponent],
   imports: [
     BrowserModule,
     RouterModule,
