@@ -1,7 +1,11 @@
 <div class="header">
   <div class="tw-text-24-px tw-font-600">Open Books Library</div>
+  
   <div class="search-button">
-    <mat-icon class="tw-mt-16-px" aria-label="Search Icon">search</mat-icon>
+    <button mat-icon-button (click)="searchBooks()" >
+      <mat-icon aria-label="Search Icon">search</mat-icon>
+    </button>
+    
     <input
       [formControl]="bookSearch"
       name="searchKey"
@@ -9,8 +13,10 @@
       placeholder="Search Books"
       class="tw-border-0 tw-bg-inherit"
     >
+    
+    
   </div>
-</div>
+</div>  
 
 
 <div class="tw-flex tw-flex-row tw-m-24-px">
@@ -22,7 +28,14 @@
       </li>
     </ul>
   </section>
-</div>
+</div> 
+
 <div class="searchResSection" *ngIf="searchResBooks.length > 0" >
   <front-end-internship-assignment-table-view [booksList]="searchResBooks"></front-end-internship-assignment-table-view>
+  
+  <div class="pagination">
+    <button class="btn btn-primary" [disabled]="currentPage === 0" (click)="prevPage()">Previous</button>
+    <button class="btn btn-primary" [disabled]="currentPage === 0" (click)="nextPage()">next</button>
+  </div>
+  
 </div>
