@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, filter } from 'rxjs';
@@ -69,6 +70,8 @@ export class HomeComponent implements OnInit {
         this.totalPages = Math.ceil(this.totalResults / this.pageSize);
       });
   }
+
+
   getPages(): number[] {
     const pages: number[] = [];
     const startPage = Math.max(1, this.currentPage - 2);
@@ -105,5 +108,13 @@ export class HomeComponent implements OnInit {
     }
   }
   
-  
+  clearSearch(): void {
+    this.bookSearch.reset();
+    this.allBooks = [];
+    this.searchResBooks = [];
+    this.currentPage = 1;
+    this.totalPages = 0;
+    this.totalResults = 0;
+  }
+
 }

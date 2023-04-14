@@ -1,70 +1,98 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px;
-  background-color: #F5F5F5;
-}
-
-.tw-text-24-px {
-  font-size: 24px;
-}
-
-.tw-font-600 {
-  font-weight: 600;
+  @apply
+  tw-flex
+  tw-flex-row
+  tw-justify-between
+  tw-items-center
+  tw-rounded-4-px
+  tw-p-12-px
+  tw-m-24-px;
+  background: linear-gradient(146deg, #e1eeff 19.67%, #ffe4fb 127.56%);
 }
 
 .search-button {
   display: flex;
   align-items: center;
-  justify-content: center; 
-  flex: 1;
-}
-.search-button input[type="text"] {
-  padding: 8px;
-  margin-left: 8px;
-  border: none;
-  background-color: transparent;
-  font-size: 16px;
-  width: 300px;
-  max-width: 100%; 
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-right: 20%;
 }
 
-.search-button input[type="text"]::placeholder {
-  color: #A0A0A0;
+.searchBtnIcon {
+  background-color: #1e90ff;
+  color: #fff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
 }
 
-.search-button button {
-  margin-left: 8px;
-  border: none;
-  background-color: transparent;
+.clearBtnIcon {
+  background-color: #1e90ff;
+  color: #fff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+}
+
+
+.search-button button:hover {
+  background-color: #1877c9;
   cursor: pointer;
 }
 
-.search-button button:hover {
-  color: #0077CC;
+.search-button input[type="text"] {
+  border: none;
+  padding: 10px;
+  flex: 1;
+  background-color: transparent;
+  color: #1e90ff;
+  font-size: 16px;
+  border-radius: 15px;
 }
 
-.search-button button:focus {
+.search-button input[type="text"]::placeholder {
+  color: #1e90ff;
+}
+
+.search-button input[type="text"]:focus {
   outline: none;
 }
 
-.search-button mat-icon {
+.search-button .mat-icon {
   font-size: 24px;
-  color: #0077CC;
 }
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .search-button {
-    margin-top: 16px;
-  }
+.search-button button:last-child {
+  margin-right: 0;
 }
 
+.search-button button:last-child .mat-icon {
+  font-size: 20px;
+}
+
+.search-button button:last-child:hover {
+  background-color: #e74c3c;
+}
+
+
+.trending-subjects {
+  @apply
+  tw-bg-table-header-bg
+  tw-p-12-px
+  tw-rounded-4-px
+  tw-shadow-lg
+}
 .trending-subjects {
   @apply
   tw-bg-table-header-bg

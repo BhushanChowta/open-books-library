@@ -2,7 +2,7 @@
   <div class="tw-text-24-px tw-font-600">Open Books Library</div>
   
   <div class="search-button">
-    <button mat-icon-button (click)="searchBooks()" >
+    <button class="searchBtnIcon" mat-icon-button (click)="searchBooks()" >
       <mat-icon aria-label="Search Icon">search</mat-icon>
     </button>
     
@@ -10,11 +10,13 @@
       [formControl]="bookSearch"
       name="searchKey"
       type="text"
-      placeholder="Search Books"
-      class="tw-border-0 tw-bg-inherit"
+      placeholder="Search Here..."
+      class="tw-border-0 tw-bg-inherit input-box "
     >
-    
-    
+    <button class="clearBtnIcon" mat-icon-button (click)="clearSearch()" *ngIf="bookSearch.value || searchResBooks.length">
+      <mat-icon aria-label="Clear Icon">clear</mat-icon>
+    </button>
+
   </div>
 </div>  
 
