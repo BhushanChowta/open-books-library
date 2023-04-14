@@ -1,13 +1,14 @@
+.home-content {
+  margin-left: 250px;
+}
+
 .header {
-  @apply
-  tw-flex
-  tw-flex-row
-  tw-justify-between
-  tw-items-center
-  tw-rounded-4-px
-  tw-p-12-px
-  tw-m-24-px;
-  background: linear-gradient(146deg, #e1eeff 19.67%, #ffe4fb 127.56%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: linear-gradient(9deg, #2d5c9b 19.67%, #c2ec09 127.56%);
 }
 
 .search-button {
@@ -18,7 +19,7 @@
   border-radius: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   padding: 10px;
-  margin-right: 20%;
+  margin-right: 15%;
 }
 
 .searchBtnIcon {
@@ -86,20 +87,7 @@
 }
 
 
-.trending-subjects {
-  @apply
-  tw-bg-table-header-bg
-  tw-p-12-px
-  tw-rounded-4-px
-  tw-shadow-lg
-}
-.trending-subjects {
-  @apply
-  tw-bg-table-header-bg
-  tw-p-12-px
-  tw-rounded-4-px
-  tw-shadow-lg
-}
+//Pagination CSS
 
 .pagination {
   display: flex;

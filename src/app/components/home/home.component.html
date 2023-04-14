@@ -1,45 +1,40 @@
-<div class="header">
-  <div class="tw-text-24-px tw-font-600">Open Books Library</div>
+<sidebar-comp></sidebar-comp>
+
+<div class="home-content">
   
-  <div class="search-button">
-    <button class="searchBtnIcon" mat-icon-button (click)="searchBooks()" >
-      <mat-icon aria-label="Search Icon">search</mat-icon>
-    </button>
+  <div class="header">
+    <div class="tw-text-24-px tw-font-600">Open Books Library</div>
     
-    <input
-      [formControl]="bookSearch"
-      name="searchKey"
-      type="text"
-      placeholder="Search Here..."
-      class="tw-border-0 tw-bg-inherit input-box "
-    >
-    <button class="clearBtnIcon" mat-icon-button (click)="clearSearch()" *ngIf="bookSearch.value || searchResBooks.length">
-      <mat-icon aria-label="Clear Icon">clear</mat-icon>
-    </button>
-
-  </div>
-</div>  
-
-
-<div class="tw-flex tw-flex-row tw-m-24-px">
-  <section class="trending-subjects">
-    <div class="tw-font-600 tw-text-24-px">Trending Subjects</div>
-    <ul class="tw-list-none tw-pl-0">
-      <li class="tw-text-16-px tw-cursor-pointer tw-p-12-px" *ngFor="let subject of trendingSubjects" routerLink="/trending-subject/{{ subject.name }}">
-        {{ subject.name }}
-      </li>
-    </ul>
-  </section>
-</div> 
-
-<div class="searchResSection" *ngIf="searchResBooks.length > 0" >
-  <front-end-internship-assignment-table-view [booksList]="searchResBooks"></front-end-internship-assignment-table-view>
+    <div class="search-button">
+      <button class="searchBtnIcon" mat-icon-button (click)="searchBooks()" >
+        <mat-icon aria-label="Search Icon">search</mat-icon>
+      </button>
+      
+      <input
+        [formControl]="bookSearch"
+        name="searchKey"
+        type="text"
+        placeholder="Search Here..."
+        class="tw-border-0 tw-bg-inherit input-box "
+      >
+      <button class="clearBtnIcon" mat-icon-button (click)="clearSearch()" *ngIf="bookSearch.value || searchResBooks.length">
+        <mat-icon aria-label="Clear Icon">clear</mat-icon>
+      </button>
+    </div>
+  </div>  
   
-  <div class="pagination">
-    <button class="prev" [disabled]="currentPage === 1" (click)="prevPage()">Prev</button>
-    <ng-container *ngFor="let page of getPages()">
-      <button [class.active]="currentPage === page" (click)="goToPage(page)">{{ page }}</button>
-    </ng-container>
-    <button class="next" [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+
+  <div class="searchResSection" *ngIf="searchResBooks.length > 0" >
+    <front-end-internship-assignment-table-view [booksList]="searchResBooks"></front-end-internship-assignment-table-view>
+    
+    <div class="pagination">
+      <button class="prev" [disabled]="currentPage === 1" (click)="prevPage()">Prev</button>
+      <ng-container *ngFor="let page of getPages()">
+        <button [class.active]="currentPage === page" (click)="goToPage(page)">{{ page }}</button>
+      </ng-container>
+      <button class="next" [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+    </div>
   </div>
+
 </div>
+

@@ -1,9 +1,7 @@
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, filter } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-
 
 @Component({
   selector: 'front-end-internship-assignment-home',
@@ -29,13 +27,7 @@ export class HomeComponent implements OnInit {
     this.pageSize = 10;
   }
 
-  trendingSubjects: Array<any> = [
-    { name: 'JavaScript' },
-    { name: 'CSS' },
-    { name: 'HTML' },
-    { name: 'Harry Potter' },
-    { name: 'Crypto' },
-  ];
+  
 
   ngOnInit(): void {
     this.bookSearch.valueChanges
@@ -43,11 +35,13 @@ export class HomeComponent implements OnInit {
         debounceTime(300),
         filter((value: string) => value.length >= 3) // optional filter to prevent searching for short strings
       ).subscribe((value: string) => {
+        this.currentPage = 1; //To reset page to 1 whenEver change in Input field happens
         this.searchBooks();
       }); 
   }
   
   searchBooks(): void {
+    
     let apiUrl = `https://openlibrary.org/search.json?`;
     if (this.bookSearch.value.toLowerCase().startsWith('author:')) { //If user search as "author: --authorname--" this will give better results
       apiUrl += `author=${this.bookSearch.value.substring(7)}`;

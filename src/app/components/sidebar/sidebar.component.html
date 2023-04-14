@@ -1,0 +1,28 @@
+<aside class="sidebar">
+
+  <img [src]="logoimg" alt="Book logo" style="display: block; margin: auto;" class="logoImg">
+
+    <div class="sidebar-header">
+      <hr >
+      <a routerLink="/" style="text-decoration: none; color: black;"><h1>🔍 Search</h1></a>
+      <hr>
+      <h1 class="no-border">Trending Subjects</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li class="tw-text-18-px tw-cursor-pointer tw-p-10-px list" style="font-size: 20px;" *ngFor="let subject of trendingSubjects" routerLink="/trending-subject/{{ subject.name }}">
+          📚 {{ subject.name }}
+        </li>
+      </ul>
+    </nav>
+    <div class="sidebar-header">
+      <hr>
+      <h1 class="no-border">Random Quote 💬</h1>
+      <div class="container">
+        <div class="quote-box" #quoteBox>
+          <p id="quote">"Quote incoming..."</p>
+          <small id="author">- Author</small>
+        </div>
+      </div> 
+    </div>
+</aside>
