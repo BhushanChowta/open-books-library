@@ -24,17 +24,33 @@
   </div>  
   
 
-  <div class="searchResSection" *ngIf="searchResBooks.length > 0" >
-    <front-end-internship-assignment-table-view [booksList]="searchResBooks"></front-end-internship-assignment-table-view>
-    
-    <div class="pagination">
-      <button class="prev" [disabled]="currentPage === 1" (click)="prevPage()">Prev</button>
-      <ng-container *ngFor="let page of getPages()">
-        <button [class.active]="currentPage === page" (click)="goToPage(page)">{{ page }}</button>
-      </ng-container>
-      <button class="next" [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
-    </div>
+  <div *ngIf="loading">
+    Loading...
   </div>
+  
+  <div *ngIf="!loading">
+    <div class="no-results" *ngIf="bookSearch.value  && searchResBooks.length === 0">
+      No results found.
+    </div>
+    
+    <div class="searchResSection" *ngIf="searchResBooks.length > 0">
+      
+      <front-end-internship-assignment-table-view [booksList]="searchResBooks"></front-end-internship-assignment-table-view>
+  
+      <div class="pagination" >
+        <p>Showing {{ (currentPage - 1) * pageSize + 1 }} - {{ (currentPage - 1) * pageSize + searchResBooks.length }} of {{ totalResults }} results</p>
+        <button class="prev" [disabled]="currentPage === 1" (click)="prevPage()">Prev</button>
+        <ng-container *ngFor="let page of getPages()">
+          <button [class.active]="currentPage === page" (click)="goToPage(page)">{{ page }}</button>
+        </ng-container>
+        <button class="next" [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+      </div>
+    </div>
+
+  <div *ngIf="bookSearch.value.length < 3 && searchResBooks.length === 0">
+    Search a book
+  </div>
+</div>
 
 </div>
 

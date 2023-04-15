@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   totalPages: number;
   totalResults: number;
   pageSize: number;
+  loading: boolean;
   
   constructor(private http: HttpClient) {
     this.bookSearch = new FormControl('');
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
     this.totalPages = 0;
     this.totalResults = 0;
     this.pageSize = 10;
+    this.loading = false;
   }
 
   
@@ -41,7 +43,8 @@ export class HomeComponent implements OnInit {
   }
   
   searchBooks(): void {
-    
+    this.loading = true; // seting loading to true before making the HTTP request
+
     let apiUrl = `https://openlibrary.org/search.json?`;
     if (this.bookSearch.value.toLowerCase().startsWith('author:')) { //If user search as "author: --authorname--" this will give better results
       apiUrl += `author=${this.bookSearch.value.substring(7)}`;
@@ -59,6 +62,7 @@ export class HomeComponent implements OnInit {
           first_publish_year: book.first_publish_year,
           key: book.key
         }));
+        this.loading = false; // seting loading to false after receiving the response
         this.allBooks = this.searchResBooks;
         this.totalResults = response.numFound;
         this.totalPages = Math.ceil(this.totalResults / this.pageSize);
