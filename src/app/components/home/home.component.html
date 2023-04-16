@@ -16,8 +16,9 @@
         type="text"
         placeholder="Search Here..."
         class="tw-border-0 tw-bg-inherit input-box "
+        (keyup.enter)="searchBooks()"   
       >
-      <button class="clearBtnIcon" mat-icon-button (click)="clearSearch()" *ngIf="bookSearch.value || searchResBooks.length">
+      <button class="clearBtnIcon" mat-icon-button (click)="clearSearch(); " *ngIf="bookSearch.value || searchResBooks.length">
         <mat-icon aria-label="Clear Icon">clear</mat-icon>
       </button>
     </div>
@@ -25,12 +26,15 @@
   
 
   <div *ngIf="loading">
-    Loading...
+    <loader-comp></loader-comp>
   </div>
   
   <div *ngIf="!loading">
     <div class="no-results" *ngIf="bookSearch.value  && searchResBooks.length === 0">
-      No results found.
+      <div class="message">
+        <p>No results found.<br>
+          😞<br>Click 🔍 to Try Again </p>
+      </div>   
     </div>
     
     <div class="searchResSection" *ngIf="searchResBooks.length > 0">
@@ -47,10 +51,15 @@
       </div>
     </div>
 
+
+
   <div *ngIf="bookSearch.value.length < 3 && searchResBooks.length === 0">
-    Search a book
+    <div class="message">
+      <p>Search for a book...</p>
+    </div>    
   </div>
 </div>
+
 
 </div>
 

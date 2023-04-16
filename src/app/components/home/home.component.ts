@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   totalResults: number;
   pageSize: number;
   loading: boolean;
+  showClear: boolean;
   
   constructor(private http: HttpClient) {
     this.bookSearch = new FormControl('');
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.totalResults = 0;
     this.pageSize = 10;
     this.loading = false;
+    this.showClear = false;
   }
 
   

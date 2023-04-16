@@ -1,6 +1,7 @@
 <div class="tw-m-24-px">
-  <div class="tw-mb-24-px tw-text-24-px"> Top {{ booksList.length }} book{{ booksList.length > 1 ? "s" : "" }} on {{ subjectName }}</div>
-
+  <div *ngIf="subjectName" class="tw-mb-24-px tw-text-24-px"> Top {{ booksList.length }} book{{ booksList.length > 1 ? "s" : "" }} on {{ subjectName }}</div>
+  <div *ngIf="!subjectName" class="tw-mb-24-px tw-text-24-px">Your Search Result</div>
+  
   <ng-container>
     <table class="table-view">
       <thead>

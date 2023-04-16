@@ -1,14 +1,18 @@
 <sidebar-comp></sidebar-comp>
 
 <div class="subject-content">
-  
+
   <header-comp></header-comp>
-  
-  <div *ngIf="allBooks.length > 0" >
+
+  <div *ngIf="isLoading">
+    <loader-comp></loader-comp>
+  </div>
+
+  <div *ngIf="!isLoading">
     <front-end-internship-assignment-table-view
     [booksList]="allBooks"
     [subjectName]="subjectName"
     ></front-end-internship-assignment-table-view>
   </div>
-  
+
 </div>

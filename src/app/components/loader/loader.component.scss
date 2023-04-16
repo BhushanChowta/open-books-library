@@ -1,0 +1,33 @@
+.loader-content{
+    margin-left: 250px;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding-right: 250px;
+  }
+  
+  .loader {
+    border: 10px solid #f3f3f3; /* light grey */
+    border-top: 10px solid #3498db; /* blue */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .loading-container p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

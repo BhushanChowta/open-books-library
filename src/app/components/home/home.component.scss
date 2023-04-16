@@ -86,6 +86,27 @@
   background-color: #e74c3c;
 }
 
+//Search a book/ No Result Message
+.message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e4ffe0;
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+  margin: 20px;
+  height: 500px;
+}
+
+.message p {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
 
 //Pagination CSS
 
