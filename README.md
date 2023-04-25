@@ -1,3 +1,15 @@
+# Renewed Treasures
+This is a Books library Website that allows to browse and search books using the Open Library Subjects and Search APIs
+
+
+## Available Features
+
+### Search Page
+![Search Page](./static/images/searchRes.PNG)
+
+### Subject Page
+![Subject Page](./static/images/subRes.PNG)
+
 # Fyle Frontend Challenge
 
 ## Who is this for?
