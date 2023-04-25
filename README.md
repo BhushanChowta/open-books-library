@@ -1,5 +1,5 @@
 # Open Books Library
-This is a Books library Website that allows to browse and search books using the Open Library Subjects and Search APIs
+This is a Books library Website that allows to browse and search books using the Open Library Subjects and Search APIs.
 
 
 ## Available Features
