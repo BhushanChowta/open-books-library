@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit {
     apiUrl += `&offset=${(this.currentPage - 1) * this.pageSize}&limit=${this.pageSize}`; // adding pagination parameters
     this.http.get(apiUrl)
       .subscribe((response: any) => {
-        this.searchResBooks = response.docs.map((book: any) => ({
+        this.searchResBooks = response.docs.map((book: any) => ({ //response.docs array into a new object with only the desired properties 
           title: book.title,
           authors: book.author_name?.map((name: string) => ({ name })) || [],
           first_publish_year: book.first_publish_year,
